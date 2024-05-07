@@ -94,3 +94,19 @@
   left: 0;
   height: 35px;
 }
+
+
+.tabs {
+  background: #D0F0E5;
+  border: 2px solid #8DD8BC;
+  border-radius: 10px;
+}
+
+.tab-border {
+  border-left: 2px solid #8DD8BC;
+  border-right: 2px solid #8DD8BC;
+}
+
+.border-clr {
+  border-color: #8DD8BC !important;
+}

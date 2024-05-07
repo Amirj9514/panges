@@ -1,0 +1,25 @@
+:root {
+    --primary: #8DD8BC;
+    --secondary: #D0F0E5;
+    /* Define the variable */
+}
+
+
+
+.primary-bg {
+    background-color: var(--primary) !important;
+}
+
+.secondary-bg {
+    background-color: var(--secondary) !important;
+}
+
+
+.addBorder {
+    border: 1px solid gray;
+}
+
+
+.primary-border {
+    border-color: var(--primary);
+}

@@ -5,3 +5,9 @@
 .cursor-pointer {
     cursor: pointer;
 }
+
+
+
+.fs-bold {
+    font-weight: 600;
+}
