@@ -28,6 +28,7 @@
     <div class="container-fluid py-4">
       <div class="row">
         <div class="col-md-4">
+          <!--------------------------------- Tabs Section Start----------------------------------->
           <div class="row m-0 mb-4 tabs">
             <div
               class="col-4 d-flex flex-column align-items-center-center justify-content-center py-2"
@@ -54,7 +55,12 @@
               <span class="fs-bold text-center">Player</span>
             </div>
           </div>
-          <div class="card addBorder primary-border">
+
+          <!--------------------------------- Tabs Section end----------------------------------->
+
+          <!--------------------------------- Add Person Form Section Start----------------------------------->
+
+          <div class="card addBorder primary-border" id="addCard">
             <div
               class="card-header secondary-bg py-2 text-center fs-4 fs-bold addBorder primary-border"
             >
@@ -175,7 +181,146 @@
               </button>
             </form>
           </div>
+
+          <!--------------------------------- Add Person Form Section End----------------------------------->
+
+          <!--------------------------------- Edit Person Form Section Start----------------------------------->
+
+          <div class="card addBorder primary-border d-none" id="editCard">
+            <div
+              class="card-header secondary-bg py-2 text-center fs-4 fs-bold addBorder primary-border"
+            >
+              Edit Person Details
+            </div>
+
+            <form class="card-body addBorder primary-border" id="editForm">
+              <div class="mb-3">
+                <label for="nameInput" class="form-label mb-0 fs-bold"
+                  >Name</label
+                >
+                <input
+                  id="editName"
+                  type="text"
+                  class="form-control"
+                  placeholder="Optional"
+                />
+              </div>
+
+              <div class="mb-3">
+                <label for="" class="form-label mb-1 fs-bold">Height</label>
+                <div class="d-flex gap-3 mb-3">
+                  <div
+                    id="editCmTab"
+                    class="w-100 addBorder secondary-bg primary-border py-2 text-center rounded-3 fs-bold pointer"
+                    onclick="onSelectValChgEdit(1)"
+                  >
+                    cm
+                  </div>
+                  <div
+                    id="editFeetTab"
+                    class="w-100 addBorder primary-border py-2 text-center rounded-3 fs-bold pointer"
+                    onclick="onSelectValChgEdit(2)"
+                  >
+                    Feet
+                  </div>
+                </div>
+              </div>
+              <div id="editFeetDiv" class="d-none">
+                <div class="input-group my-2">
+                  <input
+                    type="number"
+                    id="editFeetInput"
+                    class="form-control"
+                    placeholder="5.4"
+                    aria-label="Dollar amount (with dot and two decimal places)"
+                  />
+                  <span class="input-group-text">ft</span>
+                </div>
+              </div>
+              <div id="editCmDiv">
+                <div class="input-group">
+                  <input
+                    type="number"
+                    id="editCmInput"
+                    placeholder="178"
+                    class="form-control"
+                    aria-label="Dollar amount (with dot and two decimal places)"
+                  />
+                  <span class="input-group-text">cm</span>
+                </div>
+              </div>
+
+              <div class="my-3">
+                <label for="" class="form-label mb-1 fs-bold">Gender</label>
+                <div class="d-flex gap-3">
+                  <div
+                    id="editMaleSec"
+                    class="w-100 addBorder secondary-bg primary-border py-2 text-center rounded-3 fs-bold pointer"
+                    onclick="chgGenderValEdit(1)"
+                  >
+                    Male
+                  </div>
+                  <div
+                    id="editFeMaleSec"
+                    class="w-100 addBorder primary-border py-2 text-center rounded-3 fs-bold pointer"
+                    onclick="chgGenderValEdit(2)"
+                  >
+                    Female
+                  </div>
+                </div>
+              </div>
+
+              <div class="my-3">
+                <label for="" class="form-label mb-1 fs-bold"
+                  >Person Color</label
+                >
+                <div class="d-flex gap-1">
+                  <div id="colorsDiv2"></div>
+                  <div class="position-relative">
+                    <div
+                      class="input-color-container visibility-hidden"
+                      style="visibility: hidden"
+                    >
+                      <input
+                        id="EditInput-color"
+                        value="#ed6868"
+                        class="input-color"
+                        type="color"
+                        onchange="getSeletedColor2()"
+                      />
+                    </div>
+                    <label
+                      class="input-color-label d-flex justify-content-center align-items-center border border-1 rounded-circle"
+                      for="input-color"
+                    >
+                      <span><i class="bi bi-eyedropper"></i></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex gap-4">
+                <button
+                  type="button"
+                  class="btn btn-secondary mt-3 w-100"
+                  onclick="closeEditFrom()"
+                >
+                  Cancel
+                </button>
+
+                <button
+                  type="button"
+                  class="btn btn-primary mt-3 w-100"
+                  onclick="applyChanges()"
+                >
+                  Apply Changes
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
+
+        <!--------------------------------- Graph Section Start----------------------------------->
         <div class="col-md-8">
           <div class="main-container">
             <div id="container" class="containers"></div>
@@ -184,6 +329,7 @@
             </div>
           </div>
         </div>
+        <!--------------------------------- Graph Section Ends-------------------------------->
       </div>
     </div>
 

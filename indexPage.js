@@ -19,6 +19,8 @@ let previousList = [];
 let personList = [];
 let maxGraphHeght = 0;
 
+let eidtPerson = false;
+
 // Global Variables Ends Here
 //---------------------------------------------
 window.onload = function () {
@@ -213,6 +215,7 @@ function createADiv(date) {
 //---------------------------------------------
 
 function addHeight(listData) {
+  console.log(listData);
   // const inputValue = document.getElementById("heightValue").value;
   const inputValue = listData.cm;
   let minVal = 0;
@@ -382,11 +385,17 @@ function setSvgByHeightVal(data, index) {
   mainContainer.append(svgDiv);
 }
 
-function colorDivGenrator() {
-  const mainContainer = document.getElementById("colorsDiv");
+function colorDivGenrator(callFrom) {
+  let mainContainer = "";
+
+  if (callFrom == 2) {
+    mainContainer = document.getElementById("colorsDiv2");
+    mainContainer.innerHTML = "";
+  } else {
+    mainContainer = document.getElementById("colorsDiv");
+  }
   const containerDiv = document.createElement("div");
   containerDiv.classList.add("d-flex", "gap-1");
-
   colors.forEach((color, index) => {
     // Create outer div
     const outerDiv = document.createElement("div");
@@ -431,42 +440,138 @@ function colorDivGenrator() {
 }
 
 function setValToFrom(data) {
-  console.log(data);
-  document.getElementById("nameInput").value = data.name;
-  // document.getElementById("scaleSelect").value = data.scale;
-  var optionToSelect = document.querySelector(
-    `#scaleSelect option[value="${data.scale}"]`
-  );
-  optionToSelect.selected = true;
-  document.getElementById("feetInput").value = data.feetVal;
-  document.getElementById("cmInput").value = data.cmVal;
-  const feetDiv = document.getElementById("feetDiv");
-  const cmDiv = document.getElementById("cmDiv");
+  formVal = {
+    id: data.id,
+    name: data.name,
+    cm: data.cmVal,
+    feet: data.feetVal,
+    scale: data.scale,
+    gender: data.gender,
+    color: data.color,
+  };
+  eidtPerson = true;
+  const addCard = document.getElementById("addCard");
+  const editCard = document.getElementById("editCard");
+
+  addCard.classList.add("d-none");
+  addCard.classList.remove("d-block", "d-flex");
+
+  editCard.classList.remove("d-none");
+  editCard.classList.add("d-flex");
+  document.getElementById("editName").value = data.name;
+  document.getElementById("editFeetInput").value = data.feetVal;
+  document.getElementById("editCmInput").value = data.cmVal;
+
+  const cmTab = document.getElementById("editCmTab");
+  const feetTab = document.getElementById("editFeetTab");
+  const feetDiv = document.getElementById("editFeetDiv");
+  const cmDiv = document.getElementById("editCmDiv");
 
   if (data.scale == 1) {
     cmDiv.classList.remove("d-none");
     cmDiv.classList.add("d-block");
     feetDiv.classList.add("d-none");
+    feetTab.classList.remove("secondary-bg");
+    cmTab.classList.add("secondary-bg");
   } else {
     cmDiv.classList.add("d-none");
     feetDiv.classList.remove("d-none");
     feetDiv.classList.add("d-block");
+    cmTab.classList.remove("secondary-bg");
+    feetTab.classList.add("secondary-bg");
   }
 
-  const male = document.getElementById("maleSec");
-  const female = document.getElementById("feMaleSec");
+  const male = document.getElementById("editMaleSec");
+  const female = document.getElementById("editFeMaleSec");
 
   if (data.gender.id == 1) {
-    female.classList.remove("bg-primary");
-    male.classList.add("bg-primary");
-    male.classList.add("text-light");
-    female.classList.remove("text-light");
+    female.classList.remove("secondary-bg");
+    male.classList.add("secondary-bg");
   } else {
-    female.classList.add("bg-primary");
-    female.classList.add("text-light");
-    male.classList.remove("bg-primary");
-    male.classList.remove("text-light");
+    female.classList.add("secondary-bg");
+    male.classList.remove("secondary-bg");
   }
+  colorDivGenrator(2);
+}
+
+function closeEditFrom() {
+  eidtPerson = false;
+  const addCard = document.getElementById("addCard");
+  const editCard = document.getElementById("editCard");
+
+  addCard.classList.remove("d-none");
+  addCard.classList.add("d-block");
+
+  editCard.classList.add("d-none");
+  editCard.classList.remove("d-block");
+}
+
+function onSelectValChgEdit(type) {
+  const feetTab = document.getElementById("editFeetTab");
+  const cmTab = document.getElementById("editCmTab");
+  const feetDiv = document.getElementById("editFeetDiv");
+  const cmDiv = document.getElementById("editCmDiv");
+
+  if (type == 1) {
+    cmDiv.classList.remove("d-none");
+    cmDiv.classList.add("d-block");
+    feetDiv.classList.add("d-none");
+    feetTab.classList.remove("secondary-bg");
+    cmTab.classList.add("secondary-bg");
+  } else {
+    cmDiv.classList.add("d-none");
+    feetDiv.classList.remove("d-none");
+    feetDiv.classList.add("d-block");
+    feetTab.classList.add("secondary-bg");
+    cmTab.classList.remove("secondary-bg");
+  }
+  formVal.scale = parseInt(type);
+}
+
+function chgGenderValEdit(val) {
+  const male = document.getElementById("editMaleSec");
+  const female = document.getElementById("editFeMaleSec");
+  let newVal = {};
+  if (val == 1) {
+    newVal = { name: "Male", id: 1 };
+    female.classList.remove("secondary-bg");
+    male.classList.add("secondary-bg");
+  } else {
+    newVal = { name: "Female", id: 2 };
+    female.classList.add("secondary-bg");
+    male.classList.remove("secondary-bg");
+  }
+  formVal.gender = newVal;
+}
+
+function getSeletedColor2() {
+  const inputVal = document.getElementById("EditInput-color").value;
+  if (inputVal) {
+    formVal.color = inputVal;
+  }
+}
+
+function applyChanges() {
+  const nameInput = document.getElementById("editName").value;
+  const feetVal = document.getElementById("editFeetInput").value;
+  const cmVal = document.getElementById("editCmInput").value;
+
+  formVal.name = nameInput;
+  formVal.feet = parseFloat(formVal.scale == 2 ? feetVal : cmToFeet(cmVal));
+  formVal.cm = parseFloat(formVal.scale == 1 ? cmVal : feetToCm(feetVal));
+
+  const indexToUpdate = previousList.findIndex(
+    (data) => data.id === formVal.id
+  );
+  if (indexToUpdate !== -1) {
+    previousList[indexToUpdate] = formVal; // Update the item directly
+  }
+  personList = [];
+  previousList.map((listData) => {
+    addHeight(listData);
+  });
+
+  closeEditFrom();
 }
 
 // ------------------------------------------------------------------
