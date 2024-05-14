@@ -110,3 +110,16 @@
 .border-clr {
   border-color: #8DD8BC !important;
 }
+
+.activeTab {
+  background-color: #8DD8BC;
+  color: #ffffff;
+}
+
+
+
+
+/* 
+Select Input Feild With Search
+ */
+ 

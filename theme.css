@@ -1,6 +1,7 @@
 :root {
     --primary: #8DD8BC;
     --secondary: #D0F0E5;
+    --secondary2:#243666
     /* Define the variable */
 }
 
@@ -12,6 +13,17 @@
 
 .secondary-bg {
     background-color: var(--secondary) !important;
+}
+
+.secondary2-bg {
+    background-color: var(--secondary2) !important;
+}
+
+.secondary-text {
+    color: var(--secondary);
+}
+.secondary2-text{
+    color: var(--secondary2);
 }
 
 

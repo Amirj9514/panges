@@ -21,13 +21,14 @@ let maxGraphHeght = 0;
 
 let eidtPerson = false;
 
+let activeTab = 0;
+
 // Global Variables Ends Here
 //---------------------------------------------
 window.onload = function () {
   createADiv(graphValArray);
   graphValArray = JSON.stringify(graphValArray);
   graphValArray = JSON.parse(graphValArray);
-
   colorDivGenrator();
 };
 
@@ -86,8 +87,10 @@ function selectColor(clr) {
   });
 }
 
-function getSeletedColor() {
-  const inputVal = document.getElementById("input-color").value;
+function getSeletedColor(callFrom) {
+  const inputVal = document.getElementById("input-color" + callFrom).value;
+
+  console.log(inputVal);
   if (inputVal) {
     formVal.color = inputVal;
   }
@@ -391,9 +394,14 @@ function colorDivGenrator(callFrom) {
   if (callFrom == 2) {
     mainContainer = document.getElementById("colorsDiv2");
     mainContainer.innerHTML = "";
+  } else if (callFrom == 3) {
+    mainContainer = document.getElementById("colorsDiv3");
+    mainContainer.innerHTML = "";
   } else {
     mainContainer = document.getElementById("colorsDiv");
   }
+
+  console.log(mainContainer);
   const containerDiv = document.createElement("div");
   containerDiv.classList.add("d-flex", "gap-1");
   colors.forEach((color, index) => {
@@ -575,6 +583,95 @@ function applyChanges() {
 }
 
 // ------------------------------------------------------------------
+// Tab Mrthods Start From Here
+// ------------------------------------------------------------------
+
+function tabChange(tab) {
+  const tab1 = document.getElementById("tab1");
+  const tab2 = document.getElementById("tab2");
+  const tab3 = document.getElementById("tab3");
+  const tabSec1 = document.getElementById("TabSection1");
+  const tabSec2 = document.getElementById("TabSection2");
+  const tabSec3 = document.getElementById("TabSection3");
+  if (tab !== activeTab) {
+    activeTab = tab;
+
+    switch (activeTab) {
+      case 0:
+        tab1.classList.add("activeTab");
+        tab2.classList.remove("activeTab");
+        tab3.classList.remove("activeTab");
+        tabSec1.classList.remove("d-none");
+        tabSec2.classList.add("d-none");
+        tabSec3.classList.add("d-none");
+        break;
+
+      case 1:
+        tab2.classList.add("activeTab");
+        tab1.classList.remove("activeTab");
+        tab3.classList.remove("activeTab");
+        tabSec1.classList.add("d-none");
+        tabSec2.classList.remove("d-none");
+        tabSec3.classList.add("d-none");
+        renderDynamicOptions();
+
+        handleSelectChange();
+
+        colorDivGenrator(3);
+        break;
+
+      case 2:
+        tab3.classList.add("activeTab");
+        tab2.classList.remove("activeTab");
+        tab1.classList.remove("activeTab");
+        tabSec1.classList.add("d-none");
+        tabSec2.classList.add("d-none");
+        tabSec3.classList.remove("d-none");
+        break;
+
+      default:
+        break;
+    }
+  }
+}
+
+function renderDynamicOptions() {
+  // Array of options
+  var options = clebData;
+
+  var select = document.getElementById("dynamicSelect");
+
+  // Loop through the options array and append each option to the select element
+  options.forEach(function (optionText) {
+    var option = document.createElement("option");
+    option.text = optionText.name;
+    option.value = optionText.id;
+    select.add(option);
+  });
+
+  // Refresh the selectpicker to reflect the dynamically added options
+  $(".selectpicker").selectpicker("refresh");
+}
+
+function handleSelectChange() {
+  // Get the select element
+  var select = document.getElementById("dynamicSelect");
+
+  // Add change event listener
+  select.addEventListener("change", function () {
+    // Get selected values
+    var selectedValues = [];
+    var selectedOptions = select.selectedOptions;
+    for (var i = 0; i < selectedOptions.length; i++) {
+      selectedValues.push(selectedOptions[i].value);
+    }
+
+    // Log selected values
+    console.log("Selected values:", selectedValues);
+  });
+}
+
+// ------------------------------------------------------------------
 // Cm To Feet converter
 // ------------------------------------------------------------------
 
@@ -635,3 +732,111 @@ function generateAlphanumericId() {
   const alphanumericId = currentTime + randomAlphanumeric;
   return alphanumericId;
 }
+
+const clebData = [
+  { id: 1, name: "Kenny Baker", heightCm: "112", heightFeet: "3.67" },
+  { id: 2, name: "Peter Dinklage", heightCm: "132", heightFeet: "4.33" },
+  { id: 3, name: "Danny DeVito", heightCm: "147", heightFeet: "4.83" },
+  { id: 4, name: "Mickey Rooney", heightCm: "157", heightFeet: "5.17" },
+  { id: 5, name: "Kevin Hart", heightCm: "159", heightFeet: "5.25" },
+  { id: 6, name: "Dudley Moore", heightCm: "159", heightFeet: "5.25" },
+  { id: 7, name: "David Faustino", heightCm: "160", heightFeet: "5.25" },
+  { id: 8, name: "Ken Jeong", heightCm: "165", heightFeet: "5.42" },
+  { id: 9, name: "Norman Lloyd", heightCm: "165", heightFeet: "5.42" },
+  { id: 10, name: "Volodymyr Zelenskyy", heightCm: "166", heightFeet: "5.50" },
+  { id: 11, name: "Danny Trejo", heightCm: "167", heightFeet: "5.58" },
+  { id: 12, name: "Aziz Ansari", heightCm: "168", heightFeet: "5.50" },
+  { id: 13, name: "Jack Black", heightCm: "168", heightFeet: "5.50" },
+  { id: 14, name: "Peter Falk", heightCm: "168", heightFeet: "5.50" },
+  { id: 15, name: "Don Knotts", heightCm: "169", heightFeet: "5.58" },
+  { id: 16, name: "Tom Cruise", heightCm: "170", heightFeet: "5.58" },
+  { id: 17, name: "Alex Trebek", heightCm: "173", heightFeet: "5.75" },
+  { id: 18, name: "Jackie Chan", heightCm: "174", heightFeet: "5.83" },
+  { id: 19, name: "Kirk Douglas", heightCm: "175", heightFeet: "5.92" },
+  { id: 20, name: "Patrick Stewart", heightCm: "175", heightFeet: "5.92" },
+  { id: 21, name: "Adam Sandler", heightCm: "177", heightFeet: "5.92" },
+  { id: 22, name: "Rick Astley", heightCm: "178", heightFeet: "5.92" },
+  { id: 23, name: "Milton Berle", heightCm: "178", heightFeet: "5.92" },
+  { id: 24, name: "Dany Boon", heightCm: "178", heightFeet: "5.92" },
+  { id: 25, name: "Daniel Craig", heightCm: "178", heightFeet: "5.92" },
+  { id: 26, name: "Eugene Levy", heightCm: "178", heightFeet: "5.92" },
+  { id: 27, name: "Ian McDiarmid", heightCm: "178", heightFeet: "5.92" },
+  { id: 28, name: "Neil Sandilands", heightCm: "178", heightFeet: "5.92" },
+  { id: 29, name: "Tony Shalhoub", heightCm: "178", heightFeet: "5.92" },
+  { id: 30, name: "Richard Widmark", heightCm: "178", heightFeet: "5.92" },
+  { id: 31, name: "George Clooney", heightCm: "180", heightFeet: "6.00" },
+  { id: 32, name: "Dan Levy", heightCm: "180", heightFeet: "6.00" },
+  { id: 33, name: "Ian McKellen", heightCm: "180", heightFeet: "6.00" },
+  { id: 34, name: "Elvis Presley", heightCm: "182", heightFeet: "6.08" },
+  { id: 35, name: "Christian Bale", heightCm: "183", heightFeet: "6.08" },
+  { id: 36, name: "Chadwick Boseman", heightCm: "183", heightFeet: "6.08" },
+  { id: 37, name: "Tom Cavanagh", heightCm: "183", heightFeet: "6.08" },
+  { id: 38, name: "Hayden Christensen", heightCm: "183", heightFeet: "6.08" },
+  { id: 39, name: "Chris Evans", heightCm: "183", heightFeet: "6.08" },
+  { id: 40, name: "Michael Fassbender", heightCm: "183", heightFeet: "6.08" },
+  { id: 41, name: "Andy Griffith", heightCm: "183", heightFeet: "6.08" },
+  { id: 42, name: "Mads Mikkelsen", heightCm: "183", heightFeet: "6.08" },
+  { id: 43, name: "Orson Welles", heightCm: "183", heightFeet: "6.08" },
+  { id: 44, name: "John Cena", heightCm: "184", heightFeet: "6.08" },
+  { id: 45, name: "Bernard Lee", heightCm: "184", heightFeet: "6.08" },
+  { id: 46, name: "Victor Garber", heightCm: "184", heightFeet: "6.08" },
+  { id: 47, name: "Jay Benedict", heightCm: "185", heightFeet: "6.17" },
+  { id: 48, name: "Pete Davidson", heightCm: "185", heightFeet: "6.17" },
+  { id: 49, name: "Stanley Kamel", heightCm: "185", heightFeet: "6.17" },
+  { id: 50, name: "Wentworth Miller", heightCm: "185", heightFeet: "6.17" },
+  { id: 51, name: "Leslie Nielsen", heightCm: "185", heightFeet: "6.17" },
+  { id: 52, name: "Dominic Purcell", heightCm: "185", heightFeet: "6.17" },
+  { id: 53, name: "Ronald Reagan", heightCm: "185", heightFeet: "6.17" },
+  { id: 54, name: "Justin Timberlake", heightCm: "185", heightFeet: "6.17" },
+  { id: 55, name: "James Earl Jones", heightCm: "187", heightFeet: "6.17" },
+  { id: 56, name: "Elon Musk", heightCm: "187", heightFeet: "6.17" },
+  { id: 57, name: "John C. Reilly", heightCm: "187", heightFeet: "6.17" },
+  { id: 58, name: "Sean Connery", heightCm: "188", heightFeet: "6.25" },
+  { id: 59, name: "Boyd Holbrook", heightCm: "188", heightFeet: "6.25" },
+  { id: 60, name: "Hugh Jackman", heightCm: "188", heightFeet: "6.25" },
+  { id: 61, name: "Chris Pratt", heightCm: "188", heightFeet: "6.25" },
+  {
+    id: 62,
+    name: "Arnold Schwarzenegger",
+    heightCm: "188",
+    heightFeet: "6.25",
+  },
+  { id: 63, name: "Will Smith", heightCm: "188", heightFeet: "6.25" },
+  { id: 64, name: "Adam Driver", heightCm: "189", heightFeet: "6.33" },
+  { id: 65, name: "George Baker", heightCm: "189", heightFeet: "6.42" },
+  { id: 66, name: "Ted Danson", heightCm: "189", heightFeet: "6.42" },
+  { id: 67, name: "Brandon Routh", heightCm: "189", heightFeet: "6.42" },
+  { id: 68, name: "Patrick Warburton", heightCm: "189", heightFeet: "6.42" },
+  { id: 69, name: "Chris Hemsworth", heightCm: "190", heightFeet: "6.50" },
+  { id: 70, name: "Chevy Chase", heightCm: "191", heightFeet: "6.58" },
+  { id: 71, name: "Tom Ellis", heightCm: "191", heightFeet: "6.58" },
+  { id: 72, name: "Will Ferrell", heightCm: "191", heightFeet: "6.58" },
+  { id: 73, name: "Liev Schreiber", heightCm: "191", heightFeet: "6.58" },
+  { id: 74, name: "Paul Bettany", heightCm: "191", heightFeet: "6.58" },
+  { id: 75, name: "Ben Affleck", heightCm: "192", heightFeet: "6.67" },
+  { id: 76, name: "Hartley Sawyer", heightCm: "192", heightFeet: "6.67" },
+  { id: 77, name: "Jason Segel", heightCm: "192", heightFeet: "6.75" },
+  { id: 78, name: "David Hasselhoff", heightCm: "193", heightFeet: "6.75" },
+  { id: 79, name: "Joel McHale", heightCm: "193", heightFeet: "6.75" },
+  { id: 80, name: "Christopher Reeve", heightCm: "193", heightFeet: "6.75" },
+  { id: 81, name: "Teddy Sears", heightCm: "193", heightFeet: "6.75" },
+  { id: 82, name: "Tom Selleck", heightCm: "193", heightFeet: "6.75" },
+  { id: 83, name: "Woody Strode", heightCm: "193", heightFeet: "6.75" },
+  { id: 84, name: "Stefan Kapicic", heightCm: "194", heightFeet: "6.83" },
+  { id: 85, name: "Alexander Skarsgård", heightCm: "194", heightFeet: "6.83" },
+  { id: 86, name: "Jeff Goldblum", heightCm: "195", heightFeet: "6.83" },
+  { id: 87, name: "Jeremy Clarkson", heightCm: "195", heightFeet: "6.92" },
+  { id: 88, name: "Fred Gwynne", heightCm: "196", heightFeet: "6.92" },
+  { id: 89, name: "Armie Hammer", heightCm: "196", heightFeet: "6.92" },
+  { id: 90, name: "Dwayne Johnson", heightCm: "196", heightFeet: "6.92" },
+  { id: 91, name: "Christopher Lee", heightCm: "196", heightFeet: "6.92" },
+  { id: 92, name: "Dolph Lundgren", heightCm: "196", heightFeet: "6.92" },
+  { id: 93, name: "Vince Vaughn", heightCm: "196", heightFeet: "6.92" },
+  { id: 94, name: "Chuck Connors", heightCm: "197", heightFeet: "7.00" },
+  { id: 95, name: "Dave Bautista", heightCm: "198", heightFeet: "7.00" },
+  { id: 96, name: "Kevin Durand", heightCm: "198", heightFeet: "7.00" },
+  { id: 97, name: "Bill Fagerbakke", heightCm: "198", heightFeet: "7.00" },
+  { id: 98, name: "Götz Otto", heightCm: "198", heightFeet: "7.00" },
+  { id: 99, name: "Bruce Spence", heightCm: "198", heightFeet: "7.00" },
+  { id: 100, name: "Mark Labbett", heightCm: "200", heightFeet: "7.08" },
+];
