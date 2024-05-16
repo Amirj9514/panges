@@ -702,7 +702,6 @@ function addNewCleb() {
   if (formVal && !formVal?.name && !formVal?.cm && !formVal?.gender?.id) {
     alert("Please Select Celebrity First!");
   } else {
-
     formVal.color =
       formVal.color && formVal.color.length > 0
         ? formVal.color
@@ -1478,5 +1477,1005 @@ const clebData = [
     heightCm: "196",
     heightFeet: "6.92",
     gender: { name: "male", id: 1 },
+  },
+  {
+    id: 101,
+    name: "TOM CRUISE",
+    heightCm: 170.2,
+    heightFeet: 5.58,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 102,
+    name: "LEONARDO DICAPRIO",
+    heightCm: 182.9,
+    heightFeet: 6.0,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 103,
+    name: "BRAD PITT",
+    heightCm: 180.3,
+    heightFeet: 5.92,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 104,
+    name: "JOHNNY DEPP",
+    heightCm: 177.8,
+    heightFeet: 5.83,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 105,
+    name: "ROBERT DOWNEY JR.",
+    heightCm: 174,
+    heightFeet: 5.71,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 106,
+    name: "WILL SMITH",
+    heightCm: 187.9,
+    heightFeet: 6.17,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 107,
+    name: "MATT DAMON",
+    heightCm: 177.8,
+    heightFeet: 5.83,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 108,
+    name: "BRUCE WILLIS",
+    heightCm: 182.9,
+    heightFeet: 6.0,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 109,
+    name: "JACKIE CHAN",
+    heightCm: 172.7,
+    heightFeet: 5.67,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 110,
+    name: "VIN DIESEL",
+    heightCm: 182.9,
+    heightFeet: 6.0,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 111,
+    name: "SYLVESTER STALLONE",
+    heightCm: 177.8,
+    heightFeet: 5.83,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 112,
+    name: "ARNOLD SCHWARZENEGGER",
+    heightCm: 187.9,
+    heightFeet: 6.17,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 113,
+    name: "JASON STATHAM",
+    heightCm: 177.8,
+    heightFeet: 5.83,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 114,
+    name: "CHRIS HEMSWORTH",
+    heightCm: 190.5,
+    heightFeet: 6.25,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 115,
+    name: "CHRIS EVANS",
+    heightCm: 184.2,
+    heightFeet: 6.04,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 116,
+    name: "CHRIS PRATT",
+    heightCm: 188,
+    heightFeet: 6.17,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 117,
+    name: "ROBERT PATTINSON",
+    heightCm: 185.4,
+    heightFeet: 6.08,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 118,
+    name: "RYAN REYNOLDS",
+    heightCm: 188,
+    heightFeet: 6.17,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 119,
+    name: "RYAN GOSLING",
+    heightCm: 184.2,
+    heightFeet: 6.04,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 120,
+    name: "CHANNING TATUM",
+    heightCm: 185.4,
+    heightFeet: 6.08,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 121,
+    name: "MARK WAHLBERG",
+    heightCm: 172.7,
+    heightFeet: 5.67,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 122,
+    name: "LIAM NEESON",
+    heightCm: 193,
+    heightFeet: 6.33,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 123,
+    name: "HUGH JACKMAN",
+    heightCm: 188,
+    heightFeet: 6.17,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 124,
+    name: "MERYL STREEP",
+    heightCm: 167.6,
+    heightFeet: 5.5,
+    gender: {
+      name: "female",
+      id: 2,
+    },
+  },
+  {
+    id: 125,
+    name: "JENNIFER LAWRENCE",
+    heightCm: 175.3,
+    heightFeet: 5.75,
+    gender: {
+      name: "female",
+      id: 2,
+    },
+  },
+  {
+    id: 126,
+    name: "JULIA ROBERTS",
+    heightCm: 175.3,
+    heightFeet: 5.75,
+    gender: {
+      name: "female",
+      id: 2,
+    },
+  },
+  {
+    id: 127,
+    name: "ANGELINA JOLIE",
+    heightCm: 170.2,
+    heightFeet: 5.58,
+    gender: {
+      name: "female",
+      id: 2,
+    },
+  },
+  {
+    id: 128,
+    name: "SCARLETT JOHANSSON",
+    heightCm: 160,
+    heightFeet: 5.25,
+    gender: {
+      name: "female",
+      id: 2,
+    },
+  },
+  {
+    id: 129,
+    name: "CAMERON DIAZ",
+    heightCm: 175.3,
+    heightFeet: 5.75,
+    gender: {
+      name: "female",
+      id: 2,
+    },
+  },
+  {
+    id: 130,
+    name: "NICOLE KIDMAN",
+    heightCm: 180.3,
+    heightFeet: 5.92,
+    gender: {
+      name: "female",
+      id: 2,
+    },
+  },
+  {
+    id: 131,
+    name: "SANDRA BULLOCK",
+    heightCm: 170.2,
+    heightFeet: 5.58,
+    gender: {
+      name: "female",
+      id: 2,
+    },
+  },
+  {
+    id: 132,
+    name: "EMMA WATSON",
+    heightCm: 165.1,
+    heightFeet: 5.42,
+    gender: {
+      name: "female",
+      id: 2,
+    },
+  },
+  {
+    id: 133,
+    name: "SCARLETT JOHANSSON",
+    heightCm: 160,
+    heightFeet: 5.25,
+    gender: {
+      name: "female",
+      id: 2,
+    },
+  },
+  {
+    id: 134,
+    name: "HALLE BERRY",
+    heightCm: 166.4,
+    heightFeet: 5.46,
+    gender: {
+      name: "female",
+      id: 2,
+    },
+  },
+  {
+    id: 135,
+    name: "KEIRA KNIGHTLEY",
+    heightCm: 170.2,
+    heightFeet: 5.58,
+    gender: {
+      name: "female",
+      id: 2,
+    },
+  },
+  {
+    id: 136,
+    name: "NATALIE PORTMAN",
+    heightCm: 160,
+    heightFeet: 5.25,
+    gender: {
+      name: "female",
+      id: 2,
+    },
+  },
+  {
+    id: 137,
+    name: "MILA KUNIS",
+    heightCm: 163.8,
+    heightFeet: 5.38,
+    gender: {
+      name: "female",
+      id: 2,
+    },
+  },
+  {
+    id: 138,
+    name: "GWYNETH PALTROW",
+    heightCm: 175.3,
+    heightFeet: 5.75,
+    gender: {
+      name: "female",
+      id: 2,
+    },
+  },
+  {
+    id: 139,
+    name: "JENNIFER LOPEZ",
+    heightCm: 165.1,
+    heightFeet: 5.42,
+    gender: {
+      name: "female",
+      id: 2,
+    },
+  },
+  {
+    id: 140,
+    name: "RIHANNA",
+    heightCm: 172.7,
+    heightFeet: 5.67,
+    gender: {
+      name: "female",
+      id: 2,
+    },
+  },
+  {
+    id: 141,
+    name: "BEYONCÉ",
+    heightCm: 169,
+    heightFeet: 5.54,
+    gender: {
+      name: "female",
+      id: 2,
+    },
+  },
+  {
+    id: 142,
+    name: "LADY GAGA",
+    heightCm: 155,
+    heightFeet: 5.08,
+    gender: {
+      name: "female",
+      id: 2,
+    },
+  },
+  {
+    id: 143,
+    name: "MADONNA",
+    heightCm: 165.1,
+    heightFeet: 5.42,
+    gender: {
+      name: "female",
+      id: 2,
+    },
+  },
+  {
+    id: 144,
+    name: "ADELE",
+    heightCm: 175.3,
+    heightFeet: 5.75,
+    gender: {
+      name: "female",
+      id: 2,
+    },
+  },
+  {
+    id: 145,
+    name: "ARIANA GRANDE",
+    heightCm: 155,
+    heightFeet: 5.08,
+    gender: {
+      name: "female",
+      id: 2,
+    },
+  },
+  {
+    id: 146,
+    name: "TAYLOR SWIFT",
+    heightCm: 177.8,
+    heightFeet: 5.83,
+    gender: {
+      name: "female",
+      id: 2,
+    },
+  },
+  {
+    id: 147,
+    name: "KATY PERRY",
+    heightCm: 157.5,
+    heightFeet: 5.17,
+    gender: {
+      name: "female",
+      id: 2,
+    },
+  },
+  {
+    id: 148,
+    name: "CARRIE UNDERWOOD",
+    heightCm: 160,
+    heightFeet: 5.25,
+    gender: {
+      name: "female",
+      id: 2,
+    },
+  },
+  {
+    id: 149,
+    name: "MIRANDA LAMBERT",
+    heightCm: 162.6,
+    heightFeet: 5.33,
+    gender: {
+      name: "female",
+      id: 2,
+    },
+  },
+  {
+    id: 150,
+    name: "BRITNEY SPEARS",
+    heightCm: 162.6,
+    heightFeet: 5.33,
+    gender: {
+      name: "female",
+      id: 2,
+    },
+  },
+  {
+    id: 151,
+    name: "JESSICA SIMPSON",
+    heightCm: 162.6,
+    heightFeet: 5.33,
+    gender: {
+      name: "female",
+      id: 2,
+    },
+  },
+  {
+    id: 152,
+    name: "MILEY CYRUS",
+    heightCm: 165.1,
+    heightFeet: 5.42,
+    gender: {
+      name: "female",
+      id: 2,
+    },
+  },
+  {
+    id: 153,
+    name: "KIM KARDASHIAN",
+    heightCm: 157.5,
+    heightFeet: 5.17,
+    gender: {
+      name: "female",
+      id: 2,
+    },
+  },
+  {
+    id: 154,
+    name: "KANYE WEST",
+    heightCm: 172.7,
+    heightFeet: 5.67,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 155,
+    name: "PARIS HILTON",
+    heightCm: 170.2,
+    heightFeet: 5.58,
+    gender: {
+      name: "female",
+      id: 2,
+    },
+  },
+  {
+    id: 156,
+    name: "LINDSAY LOHAN",
+    heightCm: 157.5,
+    heightFeet: 5.17,
+    gender: {
+      name: "female",
+      id: 2,
+    },
+  },
+  {
+    id: 157,
+    name: "BRITNEY SPEARS",
+    heightCm: 162.6,
+    heightFeet: 5.33,
+    gender: {
+      name: "female",
+      id: 2,
+    },
+  },
+  {
+    id: 158,
+    name: "TIGER WOODS",
+    heightCm: 185.4,
+    heightFeet: 6.08,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 159,
+    name: "BEN AFFLECK",
+    heightCm: 187.9,
+    heightFeet: 6.17,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 160,
+    name: "LEONARDO DICAPRIO",
+    heightCm: 182.9,
+    heightFeet: 6.0,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 161,
+    name: "ASHTON KUTCHER",
+    heightCm: 188,
+    heightFeet: 6.17,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 162,
+    name: "MILA KUNIS",
+    heightCm: 163.8,
+    heightFeet: 5.38,
+    gender: {
+      name: "female",
+      id: 2,
+    },
+  },
+  {
+    id: 163,
+    name: "DWAYNE JOHNSON",
+    heightCm: 193,
+    heightFeet: 6.33,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 164,
+    name: "JASON MOMOA",
+    heightCm: 193,
+    heightFeet: 6.33,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 165,
+    name: "HUGH JACKMAN",
+    heightCm: 188,
+    heightFeet: 6.17,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 166,
+    name: "CHRIS HEMSWORTH",
+    heightCm: 190.5,
+    heightFeet: 6.25,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 167,
+    name: "CHRIS EVANS",
+    heightCm: 183,
+    heightFeet: 6.0,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 168,
+    name: "ROBERT DOWNEY JR.",
+    heightCm: 174,
+    heightFeet: 5.71,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 169,
+    name: "WILL SMITH",
+    heightCm: 187.9,
+    heightFeet: 6.17,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 170,
+    name: "VIN DIESEL",
+    heightCm: 182.9,
+    heightFeet: 6.0,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 171,
+    name: "MARK WAHLBERG",
+    heightCm: 175.3,
+    heightFeet: 5.75,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 172,
+    name: "SYLVESTER STALLONE",
+    heightCm: 177.8,
+    heightFeet: 5.83,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 173,
+    name: "MATTHEW MCCONAUGHEY",
+    heightCm: 182.9,
+    heightFeet: 6.0,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 174,
+    name: "JONAH HILL",
+    heightCm: 170.2,
+    heightFeet: 5.58,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 175,
+    name: "CHANNING TATUM",
+    heightCm: 185.4,
+    heightFeet: 6.08,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 176,
+    name: "LEONARDO DICAPRIO",
+    heightCm: 182.9,
+    heightFeet: 6.0,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 177,
+    name: "EDDIE MURPHY",
+    heightCm: 175.3,
+    heightFeet: 5.75,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 178,
+    name: "BRUCE WILLIS",
+    heightCm: 182.9,
+    heightFeet: 6.0,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 179,
+    name: "WILL SMITH",
+    heightCm: 187.9,
+    heightFeet: 6.17,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 180,
+    name: "RYAN REYNOLDS",
+    heightCm: 188,
+    heightFeet: 6.17,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 181,
+    name: "BRAD PITT",
+    heightCm: 180.3,
+    heightFeet: 5.92,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 182,
+    name: "TOM HANKS",
+    heightCm: 182.9,
+    heightFeet: 6.0,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 183,
+    name: "MATT DAMON",
+    heightCm: 177.8,
+    heightFeet: 5.83,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 184,
+    name: "JASON STATHAM",
+    heightCm: 177.8,
+    heightFeet: 5.83,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 185,
+    name: "VIN DIESEL",
+    heightCm: 182.9,
+    heightFeet: 6.0,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 186,
+    name: "CHRIS HEMSWORTH",
+    heightCm: 190.5,
+    heightFeet: 6.25,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 187,
+    name: "CHRIS EVANS",
+    heightCm: 184.2,
+    heightFeet: 6.04,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 188,
+    name: "CHRIS PRATT",
+    heightCm: 188,
+    heightFeet: 6.17,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 189,
+    name: "ROBERT PATTINSON",
+    heightCm: 185.4,
+    heightFeet: 6.08,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 190,
+    name: "RYAN REYNOLDS",
+    heightCm: 188,
+    heightFeet: 6.17,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 191,
+    name: "RYAN GOSLING",
+    heightCm: 184.2,
+    heightFeet: 6.04,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 192,
+    name: "CHANNING TATUM",
+    heightCm: 185.4,
+    heightFeet: 6.08,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 193,
+    name: "MARK WAHLBERG",
+    heightCm: 172.7,
+    heightFeet: 5.67,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 194,
+    name: "LIAM NEESON",
+    heightCm: 193,
+    heightFeet: 6.33,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 195,
+    name: "HUGH JACKMAN",
+    heightCm: 188,
+    heightFeet: 6.17,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 196,
+    name: "MORGAN FREEMAN",
+    heightCm: 185.4,
+    heightFeet: 6.08,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 197,
+    name: "DENZEL WASHINGTON",
+    heightCm: 185.4,
+    heightFeet: 6.08,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 198,
+    name: "SAMUEL L. JACKSON",
+    heightCm: 188,
+    heightFeet: 6.17,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 199,
+    name: "WILL SMITH",
+    heightCm: 187.9,
+    heightFeet: 6.17,
+    gender: {
+      name: "male",
+      id: 1,
+    },
+  },
+  {
+    id: 200,
+    name: "MICHAEL CERA",
+    heightCm: 174,
+    heightFeet: 5.71,
+    gender: {
+      name: "male",
+      id: 1,
+    },
   },
 ];
