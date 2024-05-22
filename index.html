@@ -396,7 +396,7 @@
                 <div class="mb-3">
                   <select
                     id="dynamicSelect"
-                    class="selectpicker w-100 border border-1 rounded-3"
+                    class="selectpicker piker1 w-100 border border-1 rounded-3"
                     data-live-search="true"
                   ></select>
                 </div>
@@ -440,8 +440,82 @@
               </form>
             </div>
           </div>
+          <!--------------------------------- Tab3 Section Start----------------------------------->
+          <div id="TabSection3" class="d-none">
+            <div class="card addBorder primary-border" id="addCard">
+              <div
+                class="card-header secondary-bg py-2 text-center fs-4 fs-bold addBorder primary-border"
+              >
+                Add New Player
+              </div>
+              <form class="card-body addBorder primary-border" id="myForm">
+                <div class="mb-3">
+                  <select
+                    onchange="hideShowSelectFeild()"
+                    class="form-select"
+                    id="playerType"
+                    aria-label="Default select example"
+                  >
+                    <option value="1">NBA Players</option>
+                    <option value="2">Football Players</option>
+                  </select>
+                </div>
 
-          <div id="TabSection3" class="d-none">Hello3</div>
+                <div class="mb-3" id="NbaPLayer">
+                  <select
+                    id="dynamicSelect2"
+                    class="selectpicker piker2 w-100 border border-1 rounded-3"
+                    data-live-search="true"
+                  ></select>
+                </div>
+
+                <div class="mb-3 d-none" id="football">
+                  <select
+                    id="dynamicSelect3"
+                    class="selectpicker piker3 w-100 border border-1 rounded-3"
+                    data-live-search="true"
+                  ></select>
+                </div>
+
+                <div class="my-3">
+                  <label for="" class="form-label mb-1 fs-bold"
+                    >Person Color</label
+                  >
+                  <div class="d-flex gap-1">
+                    <div id="colorsDiv4"></div>
+                    <div class="position-relative">
+                      <div
+                        class="input-color-container visibility-hidden"
+                        style="visibility: hidden"
+                      >
+                        <input
+                          id="input-color4"
+                          value="#ed6868"
+                          class="input-color"
+                          type="color"
+                          onchange="getSeletedColor(4)"
+                        />
+                      </div>
+                      <label
+                        class="input-color-label d-flex justify-content-center align-items-center border border-1 rounded-circle"
+                        for="input-color"
+                      >
+                        <span><i class="bi bi-eyedropper"></i></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="btn secondary2-bg text-light mt-3 w-100"
+                  onclick="addNewCleb()"
+                >
+                  Add Player
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
 
         <!--------------------------------- Graph Section Start----------------------------------->
