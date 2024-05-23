@@ -68,10 +68,10 @@
               <a class="nav-link" href="#">Height Calculator</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+              <a class="nav-link" href="./aboutus.html">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
+              <a class="nav-link" href="./contact.html">Contact</a>
             </li>
           </ul>
         </div>
@@ -463,6 +463,7 @@
 
                 <div class="mb-3" id="NbaPLayer">
                   <select
+                    onchange="playerValOnChg()"
                     id="dynamicSelect2"
                     class="selectpicker piker2 w-100 border border-1 rounded-3"
                     data-live-search="true"
@@ -471,6 +472,7 @@
 
                 <div class="mb-3 d-none" id="football">
                   <select
+                    onchange="playerValOnChg()"
                     id="dynamicSelect3"
                     class="selectpicker piker3 w-100 border border-1 rounded-3"
                     data-live-search="true"
@@ -509,7 +511,7 @@
                 <button
                   type="button"
                   class="btn secondary2-bg text-light mt-3 w-100"
-                  onclick="addNewCleb()"
+                  onclick="addNewPlayer()"
                 >
                   Add Player
                 </button>

@@ -191,8 +191,6 @@ function handleSubmit(graphHeight) {
 
 function createADiv(date) {
   const container = document.getElementById("container");
-  console.log(graphValArray);
-
   let reversedArray = JSON.stringify(date);
   reversedArray = JSON.parse(reversedArray);
 
@@ -221,7 +219,6 @@ function createADiv(date) {
 //---------------------------------------------
 
 function addHeight(listData) {
-  console.log(listData);
   // const inputValue = document.getElementById("heightValue").value;
   const inputValue = listData.cm;
   let minVal = 0;
@@ -310,8 +307,7 @@ function setSvgByHeightVal(data, index) {
   );
 
   editBtnDiv.addEventListener("click", () => {
-    // Retrieve data associated with the clicked card
-    console.log("Clicked Card Data:", data);
+    // Retrieve data associated with the clicked car
     setValToFrom(data);
   });
 
@@ -336,8 +332,6 @@ function setSvgByHeightVal(data, index) {
       createGraph(personList);
     }
   });
-
-  console.log("hwde", data);
 
   if (data && data.type && data.type == "Cleb") {
     btnDiv.append(deleteBtnDiv);
@@ -627,7 +621,7 @@ function tabChange(tab) {
         tabSec2.classList.remove("d-none");
         tabSec3.classList.add("d-none");
 
-        handleSelectChange();
+        handleSelectChange(1);
         colorDivGenrator(3);
         break;
 
@@ -684,30 +678,30 @@ function renderDynamicOptions2() {
 }
 
 function renderDynamicOptions3() {
-    // Array of options
-    var options = footballPlayer;
+  // Array of options
+  var options = footballPlayer;
 
-    var select = document.getElementById("dynamicSelect3");
+  var select = document.getElementById("dynamicSelect3");
 
-    // Loop through the options array and append each option to the select element
-    options.forEach(function (optionText) {
-      var option = document.createElement("option");
-      option.text = optionText.name;
-      option.value = optionText.id;
-      select.add(option);
-    });
+  // Loop through the options array and append each option to the select element
+  options.forEach(function (optionText) {
+    var option = document.createElement("option");
+    option.text = optionText.name;
+    option.value = optionText.id;
+    select.add(option);
+  });
 
-    // Refresh the selectpicker to reflect the dynamically added options
-    $(".piker3").selectpicker("refresh");
+  // Refresh the selectpicker to reflect the dynamically added options
+  $(".piker3").selectpicker("refresh");
 }
 
 // ------------------------------------------------------------------------------------------------
 //                                 Cleb Methods Start From Here
 // ------------------------------------------------------------------------------------------------
 
-function handleSelectChange() {
+function handleSelectChange(callFrom) {
   // Get the select element
-  const select = document.getElementById("dynamicSelect");
+  let select = document.getElementById("dynamicSelect");
 
   let selectedCleb = null;
   // Add change event listener
@@ -758,32 +752,79 @@ function addNewCleb() {
   }
 }
 
+function hideShowSelectFeild() {
+  const selectedPlayerType = document.getElementById("playerType").value;
+  const select1 = document.getElementById("NbaPLayer");
+  const select2 = document.getElementById("football");
 
-let selectedPlayerId = '1';
-
-function hideShowSelectFeild(){
-  const selectedPlayerType = document.getElementById('playerType').value;
-  const select1 = document.getElementById('NbaPLayer');
-  const select2 = document.getElementById('football');
-
-  if(selectedPlayerType == 2){
-select2.classList.add('d-block')
-select2.classList.remove('d-none')
-select1.classList.add('d-none')
-select1.classList.remove('d-block')
-
-  }else{
-select1.classList.add('d-block')
-select1.classList.remove('d-none')
-select2.classList.add('d-none')
-select2.classList.remove('d-block')
+  if (selectedPlayerType == 2) {
+    select2.classList.add("d-block");
+    select2.classList.remove("d-none");
+    select1.classList.add("d-none");
+    select1.classList.remove("d-block");
+  } else {
+    select1.classList.add("d-block");
+    select1.classList.remove("d-none");
+    select2.classList.add("d-none");
+    select2.classList.remove("d-block");
   }
-
-  this.selectedPlayerId = selectedPlayerType;
-
-
-  console.log(selectedPlayerType);
 }
+
+function playerValOnChg() {
+  const selectedPlayerType = document.getElementById("playerType").value;
+  let select = "";
+
+  let arrData = [];
+
+  if (selectedPlayerType == 2) {
+    select = document.getElementById("dynamicSelect3");
+    arrData = footballPlayer;
+  } else {
+    select = document.getElementById("dynamicSelect2");
+    arrData = nbaPlayers;
+  }
+  let selectedValues = [];
+  let selectedOptions = select.selectedOptions;
+  for (let i = 0; i < selectedOptions.length; i++) {
+    selectedValues.push(selectedOptions[i].value);
+  }
+  for (let i = 0; i < arrData.length; i++) {
+    const element = arrData[i];
+    if (element.id == selectedValues[0]) {
+      selectedCleb = element;
+
+      formVal = {
+        id: generateAlphanumericId(),
+        name: selectedCleb.name,
+        scale: 1,
+        feet: selectedCleb.heightFeet,
+        cm: selectedCleb.heightCm,
+        gender: { id: 1, name: "Male" },
+        type: "Player",
+      };
+      break;
+    }
+  }
+}
+
+function addNewPlayer() {
+  if (formVal && !formVal?.name && !formVal?.cm && !formVal?.gender?.id) {
+    alert("Please Select Player First!");
+  } else {
+    formVal.color =
+      formVal.color && formVal.color.length > 0
+        ? formVal.color
+        : generateRandomColor();
+    if (formVal.cm > maxGraphHeght) {
+      maxGraphHeght = formVal.cm;
+    }
+    previousList = [...previousList, { ...formVal }];
+
+    resetForm(4);
+    handleSubmit(maxGraphHeght);
+  }
+}
+
 // ------------------------------------------------------------------
 // Cm To Feet converter
 // ------------------------------------------------------------------
